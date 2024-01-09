@@ -39,6 +39,16 @@ impl Chars {
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
+
+    /// Consumes `self` and returns the underlying `Bytes`.
+    ///
+    /// # Safety
+    ///
+    /// This method is marked unsafe as the `Bytes` value can no longer be assumed to contain valid
+    /// UTF-8 data once it is no longer wrapped.
+    pub unsafe fn into_bytes(self) -> Bytes {
+        self.0
+    }
 }
 
 impl<'a> From<&'a str> for Chars {
