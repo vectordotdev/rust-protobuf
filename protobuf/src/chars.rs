@@ -110,6 +110,12 @@ impl fmt::Debug for Chars {
     }
 }
 
+impl PartialEq<str> for Chars {
+    fn eq(&self, other: &str) -> bool {
+        &*self == other
+    }
+}
+
 #[cfg(test)]
 mod test {
     use super::Chars;
