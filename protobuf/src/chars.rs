@@ -110,8 +110,8 @@ impl fmt::Debug for Chars {
     }
 }
 
-impl PartialEq<str> for Chars {
-    fn eq(&self, other: &str) -> bool {
+impl PartialEq<&str> for Chars {
+    fn eq(&self, other: &&str) -> bool {
         &self.0[..] == other.as_bytes()
     }
 }
