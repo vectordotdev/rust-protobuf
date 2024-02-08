@@ -112,7 +112,7 @@ impl fmt::Debug for Chars {
 
 impl PartialEq<&str> for Chars {
     fn eq(&self, other: &&str) -> bool {
-        &*self == other
+        self == other
     }
 }
 
