@@ -30,6 +30,11 @@ impl Chars {
         Ok(Chars(bytes))
     }
 
+    /// Convert from static string.
+    pub fn from_static(s: &'static str) -> Chars {
+        Chars(Bytes::from_static(s.as_bytes()))
+    }
+
     /// Len in bytes.
     pub fn len(&self) -> usize {
         self.0.len()
